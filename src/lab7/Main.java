@@ -4,11 +4,12 @@ import lab6.Cucumber;
 import lab6.Sauce;
 import lab6.Tomato;
 import lab6.Vegetables;
+import lab8.WrongCaloricContentValueException;
 
 import java.util.Iterator;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws WrongCaloricContentValueException {
         MySet myVegetables = new MySet();
         myVegetables.add(new Cucumber(1, 5));
         myVegetables.add(new Tomato(5, 150));

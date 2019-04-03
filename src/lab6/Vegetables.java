@@ -1,5 +1,8 @@
 package lab6;
 
+import lab8.WrongCaloricContentValueException;
+import lab8.WrongNumberValueException;
+
 import java.util.Objects;
 
 public class Vegetables {
@@ -7,6 +10,14 @@ public class Vegetables {
     private int caloric_content;
 
     public Vegetables(int number, int caloric_content) {
+        if (number <= 100) {
+            throw new WrongNumberValueException("Проблема в том, что количество овощей <= 100, и невозможно " +
+                    "найти такой ингредиент");
+        }
+        if (caloric_content <= 0) {
+            throw new WrongCaloricContentValueException("Проблема в том, что калорийность ингредиентов <= 0, и это " +
+                    "не возможно для этих ингредиентов");
+        }
         this.number = number;
         this.caloric_content = caloric_content;
     }
@@ -34,6 +45,9 @@ public class Vegetables {
     @Override
     public String toString() {
         return number + " штуки " + this.getClass().getSimpleName() + " " + caloric_content + " калорий";
+    }
+    public int getNumber() {
+        return number;
     }
 
 }

@@ -2,6 +2,9 @@ package lab7;
 
 import lab6.Vegetables;
 
+import lab8.WrongCaloricContentValueException;
+import lab8.WrongNumberValueException;
+
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Set;
@@ -22,6 +25,7 @@ public class MySet implements Set<Vegetables> {
     }
 
     public MySet(Collection<Vegetables> collection) {
+
         addAll(collection);
     }
 
@@ -80,6 +84,15 @@ public class MySet implements Set<Vegetables> {
 
     @Override
     public boolean add(Vegetables vegetables) {
+        if (vegetables.getNumber()<= 100) {
+            throw new WrongNumberValueException("Проблема в том, что количество овощей <= 100, и невозможно " +
+                    "найти такой ингредиент");
+        }
+        if (vegetables.getCaloric_content() <= 0) {
+            throw new WrongCaloricContentValueException("Проблема в том, что калорийность ингредиентов <= 0, и это не " +
+                    "возможно для этих ингредиентов");
+        }
+
         if (size() == INITIAL_CAPACITY) {
             Vegetables[] element = new Vegetables[(int) Math.round(INITIAL_CAPACITY * 1.3)];
             System.arraycopy(elements, 0, element, 0, size());

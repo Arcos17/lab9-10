@@ -1,8 +1,10 @@
 package lab6;
 
+import lab8.WrongCaloricContentValueException;
+
 import java.util.Scanner;
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws WrongCaloricContentValueException {
         Scanner scanner = new Scanner(System.in);
         Salad salad = new Salad(3);
         salad.add(new Cucumber(3,150));
