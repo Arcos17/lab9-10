@@ -19,9 +19,9 @@ public class FileWorker {
             objectOutputStream.close();
             System.out.println("1");
         } catch (FileNotFoundException e) {
-            System.out.println("Sorry. LeafFile was not found.");
+            System.out.println("Сожалению, LeafFile не найден");
         } catch (IOException e) {
-            System.out.println("Sorry. Problems with writing in the file.");
+            System.out.println("Сожалению. Проблемы с записью в файл.");
         }
     }
 
@@ -104,8 +104,6 @@ public class FileWorker {
                 int numberFromText = Integer.parseInt(numberFromTextSplitted[1]);
                 String[] caloric_contentFromTextSplitted = (bufferedReader.readLine()).split(": ");
                 int caloric_contentFromText = Integer.parseInt(caloric_contentFromTextSplitted[1]);
-//                String[] comfortFromTextSplitted = (bufferedReader.readLine()).split(": ");
-//                String comfortFromText = comfortFromTextSplitted[1];
 
                 Vegetables vegetables = new Vegetables(numberFromText, caloric_contentFromText);
                 vegetablessArrayList.add(vegetables);
